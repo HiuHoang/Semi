@@ -114,8 +114,10 @@
 {{-- Content --}}
             <div id="layoutSidenav_content">
             @yield('alluser')
+            @yield('allproduct')
             @yield('edituser')
             @yield('chart')
+            @yield('addnew')
 {{-- Footer --}}
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">

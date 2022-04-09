@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MyController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('deleteUser/{id}', [MyController::class, 'deleteUser'])->name('deleteUser');
     Route::get('editUser/{id}', [MyController::class, 'getEditUser'])->name('editUser');
     Route::post('editUser/{id}', [MyController::class, 'postEditUser'])->name('posteditUser');
+    Route::get('/manageProduct', [ProductController::class, 'getAllProduct'])->name('manageProduct');
+    Route::get('deleteProduct/{id}', [ProductController::class, 'deleteProduct'])->name('deleteProduct');
+    Route::get('editProduct/{id}', [ProductController::class, 'getEditProduct'])->name('editProduct');
+    Route::post('editProduct/{id}', [ProductController::class, 'postEditProduct'])->name('posteditProduct');
+    Route::get('/newproduct', [ProductController::class, 'getInsertProduct'])->name('insert');
+    Route::post('/addProduct', [ProductController::class, 'postProduct'])->name('');
 });

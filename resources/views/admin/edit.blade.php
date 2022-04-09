@@ -139,8 +139,8 @@
                             </div>
                         </div>
                         <!-- Save changes button-->
-                        <button class="btn btn-light" type="reset">Reset</button>
-                        <button class="btn btn-primary" type="submit">Save changes</button>
+                        <button class="btn btn-secondary" type="reset">Reset</button>
+                        <button class="btn btn-success" type="submit">Save changes</button>
                     </form>
                 </div>
             </div>
