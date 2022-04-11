@@ -17,10 +17,11 @@ class ProductSeeder extends Seeder
     {
         DB::table('products')->insert([
             'productname' => 'T-shirt',
+            'productimage' => 'sampleproduct.png',
             'price' => '10.7',
+            'productdescription' => 'This is a first product of me',
             'colour' => 'blue',
             'origin' => 'USA',
-            'type_id' => '1'
         ]);
     }
 }

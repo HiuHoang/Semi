@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.listuser');
+    return view('user.home');
 });
 Route::group(['prefix' => 'user'], function () {
     Route::post('/logout', [MyController::class, 'getlogout'])->name('logout');

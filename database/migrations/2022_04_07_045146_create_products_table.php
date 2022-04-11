@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('product_id');
             $table->string('productname');
-            $table->string('productimage');
+            $table->string('productimage')->default('sampleproduct.png');
             $table->float('price');
-            $table->string('colour');
-            $table->string('origin');
-            $table->integer('type_id')->unsigned();
-            $table->foreign('type_id')->references('type_id')->on('types');
+            $table->string('productdescription')->nullable();
+            $table->string('colour')->default('one colour');
+            $table->string('origin')->default('not know');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

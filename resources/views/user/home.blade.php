@@ -127,10 +127,11 @@
                     </ul>
                 </div>
             </div>
+            @foreach($product as $key => $value)
             <div class="row product__filter">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{url('../public/home')}}/img/product/product-1.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="">
                             <span class="label">New</span>
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{{url('../public/home')}}/img/icon/heart.png" alt=""></a></li>
@@ -163,7 +164,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="{{url('../public/home')}}/img/product/product-2.jpg">
                             <ul class="product__hover">
@@ -231,7 +232,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

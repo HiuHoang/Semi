@@ -3,8 +3,9 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4">Manage User Page</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-        <li class="breadcrumb-item active">Tables</li>
+        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="#">Management</a></li>
+        <li class="breadcrumb-item active">All User</li>
     </ol>
     <div class="card mb-4">
         <div class="card-header">
@@ -17,8 +18,9 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Email</th>
+                        <th>FullName</th>
                         <th>Image</th>
+                        <th>Email</th>
                         <th>Address</th>
                         <th>Role</th>
                         <th>Function</th>
@@ -28,8 +30,9 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Email</th>
+                        <th>FullName</th>
                         <th>Image</th>
+                        <th>Email</th>
                         <th>Address</th>
                         <th>Role</th>
                         <th>Function</th>
@@ -40,10 +43,15 @@
                     <tr>
                         <td>{{ $key+1 }}</td>
                         <td>{{ $value->username }}</td>
+                        <td>{{ $value->fullname}}</td>
+                        <td>
+                            @if($value->userimage)
+                            <img class="image rounded-circle" src="{{asset('storage/'.$value->userimage)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">
+                            @endif
+                        </td>
                         <td>{{ $value->email}}</td>
-                        <td>{{ $value->email}}</td>
-                        <td>{{ $value->email}}</td>
-                        <td>{{ $value->role}}</td>
+                        <td>{{ $value->address}}</td>
+                        <td>{{ $value->role_id}}</td>
                         <td>
                             <a href="{{route('editUser', $value->user_id)}}"class="btn btn-primary edit"><span class="glyphicon glyphicon-edit"></span>Edit</a>
                             <a href="{{route('deleteUser' , $value->user_id)}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">
