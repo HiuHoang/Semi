@@ -16,10 +16,9 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('product_id');
             $table->string('productname');
-            // $table->string('productimage');
+            $table->string('productimage');
             $table->float('price');
             $table->string('colour');
-            $table->string('material');
             $table->string('origin');
             $table->integer('type_id')->unsigned();
             $table->foreign('type_id')->references('type_id')->on('types');

@@ -135,11 +135,7 @@
                                         placeholder="Enter your organization name" value="">
                                 </div>
                                 <!-- Form Group (location)-->
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputLocation">Material</label>
-                                    <input class="form-control" name="material" id="inputLocation" type="text"
-                                        placeholder="Enter your location" value="">
-                                </div>
+
                             </div>
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">

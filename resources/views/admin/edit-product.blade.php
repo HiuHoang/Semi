@@ -113,23 +113,19 @@
                                 <input class="form-control" name="productname" id="inputFirstName" type="text" placeholder="Enter your first name" value="{{$product->productname}}">
                             </div>
                             <!-- Form Group (last name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputLastName">Price</label>
-                                <input class="form-control" name="price" id="inputLastName" type="text" placeholder="Enter your last name" value="{{$product->price}}">
-                            </div>
                         </div>
                         <!-- Form Row        -->
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Price</label>
+                                <input class="form-control" name="price" id="inputLastName" type="text" placeholder="Enter your last name" value="{{$product->price}}">
+                            </div>
+                            <div class="col-md-6">
                                 <label class="small mb-1" for="inputOrgName">Colour</label>
                                 <input class="form-control" name="colour" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{$product->colour}}">
                             </div>
                             <!-- Form Group (location)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputLocation">Material</label>
-                                <input class="form-control" name="material" id="inputLocation" type="text" placeholder="Enter your location" value="{{$product->material}}">
-                            </div>
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
