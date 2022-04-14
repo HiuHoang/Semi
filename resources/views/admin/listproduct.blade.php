@@ -24,6 +24,7 @@
                         <th>Price</th>
                         <th>Colour</th>
                         <th>Origin</th>
+                        <th>Size</th>
                         <th>Description</th>
                         <th>Function</th>
                     </tr>
@@ -36,6 +37,7 @@
                         <th>Price</th>
                         <th>Colour</th>
                         <th>Origin</th>
+                        <th>Size</th>
                         <th>Description</th>
                         <th>Function</th>
                     </tr>
@@ -46,11 +48,12 @@
                         <td>{{ $key+1 }}</td>
                         <td>{{ $value->productname }}</td>
                         <td>
-                            <img class="image rounded-circle" src="{{asset('storage/'.$value->productimage)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">
+                            <img class="image rounded" src="{{asset('images/products/'.$value->productimage)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">
                         </td>
                         <td>{{ $value->price}}</td>
                         <td>{{ $value->colour}}</td>
                         <td>{{ $value->origin}}</td>
+                        <td>{{ $value->size}}</td>
                         <td>{{ $value->productdescription}}</td>
                         <td>
                             <a href="{{route('editProduct', $value->product_id)}}"class="btn btn-primary edit"><span class="glyphicon glyphicon-edit"></span>Edit</a>

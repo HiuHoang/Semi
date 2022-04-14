@@ -78,12 +78,14 @@
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
+                    <form method="POST" enctype="multipart/form-data">
+                        @csrf
                     <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <img class="img-account-profile rounded-circle mb-2" src="{{asset('images/users/'. $user->userimage)}}" alt="">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                     <!-- Profile picture upload button-->
-                    <button class="btn btn-primary" type="button">Upload new image</button>
+                    <input class="btn btn-primary" type="file" name="userimage" value="{{$user->userimage}}">
                 </div>
             </div>
         </div>
@@ -92,12 +94,10 @@
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
-                    <form method="POST">
-                        @csrf
                         <!-- Form Group (username)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputUsername">Full name (how your name will appear to other users on the site)</label>
-                            <input class="form-control" name="fullname" id="inputUsername" type="text" placeholder="Enter your username" value="">
+                            <input class="form-control" name="fullname" id="inputUsername" type="text" placeholder="Enter your username" value="{{$user->fullname}}">
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
@@ -109,20 +109,20 @@
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLastName">Password</label>
-                                <input class="form-control" name="password" id="inputLastName" type="password" placeholder="Enter your last name" value="">
+                                <input class="form-control" name="password" id="inputLastName" type="password" placeholder="Enter your last name" value="{{$user->password}}">
                             </div>
                         </div>
                         <!-- Form Row        -->
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">  
-                                <label class="small mb-1" for="inputOrgName">Organization name</label>
-                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="Start Bootstrap">
+                                <label class="small mb-1" for="inputOrgName">Address</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{$user->address}}">
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLocation">Role</label>
-                                <input class="form-control" name="role" id="inputLocation" type="text" placeholder="Enter your location" value="{{$user->role}}">
+                                <input class="form-control" name="rolename" id="inputLocation" type="text" placeholder="Enter your location" value="{{$user->rolename}}">
                             </div>
                         </div>
                         <!-- Form Group (email address)-->
@@ -135,7 +135,7 @@
                             <!-- Form Group (phone number)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPhone">Phone number</label>
-                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
+                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="{{$user->phonenumber}}">
                             </div>
                         </div>
                         <!-- Save changes button-->

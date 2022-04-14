@@ -15,9 +15,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('orderdetail', function (Blueprint $table) {
-            $table->increments('oder_id');
+            $table->increments('order_id');
             $table->float('total');
             $table->integer('quantity');
+            $table->integer('cart_id')->unsigned();
+            $table->foreign('cart_id')->references('cart_id')->on('cart');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('user_id')->on('users');
             $table->date('date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->rememberToken();
         });

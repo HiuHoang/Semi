@@ -19,9 +19,10 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>FullName</th>
-                        <th>Image</th>
+                        <th>Avatar</th>
                         <th>Email</th>
                         <th>Address</th>
+                        <th>Phone</th>
                         <th>Role</th>
                         <th>Function</th>
                     </tr>
@@ -31,9 +32,10 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>FullName</th>
-                        <th>Image</th>
+                        <th>Avatar</th>
                         <th>Email</th>
                         <th>Address</th>
+                        <th>Phone</th>
                         <th>Role</th>
                         <th>Function</th>
                     </tr>
@@ -46,12 +48,13 @@
                         <td>{{ $value->fullname}}</td>
                         <td>
                             @if($value->userimage)
-                            <img class="image rounded-circle" src="{{asset('storage/'.$value->userimage)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">
+                            <img class="image rounded-circle" src="{{asset('images/users/'.$value->userimage)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">
                             @endif
                         </td>
                         <td>{{ $value->email}}</td>
                         <td>{{ $value->address}}</td>
-                        <td>{{ $value->role_id}}</td>
+                        <td>{{ $value->phonenumber}}</td>
+                        <td>{{ $value->rolename}}</td>
                         <td>
                             <a href="{{route('editUser', $value->user_id)}}"class="btn btn-primary edit"><span class="glyphicon glyphicon-edit"></span>Edit</a>
                             <a href="{{route('deleteUser' , $value->user_id)}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">

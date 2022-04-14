@@ -89,12 +89,14 @@
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">Product Picture</div>
                 <div class="card-body text-center">
+                    <form method="POST" enctype="multipart/form-data">
+                        @csrf
                     <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="{{$product->filepicture}}" alt="">
+                    <img class="img-account-profile rounded mb-2" src="{{asset('images/products/' . $product->productimage)}}" alt="">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                     <!-- Profile picture upload button-->
-                    <button class="btn btn-primary" type="button">Upload new image</button>
+                    <input class="btn btn-primary" type="file" name='productimage' value="{{$product->productimage}}">   
                 </div>
             </div>
         </div>
@@ -103,8 +105,6 @@
             <div class="card mb-4">
                 <div class="card-header">Product Details</div>
                 <div class="card-body">
-                    <form method="POST">
-                        @csrf
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (first name)-->
@@ -119,11 +119,11 @@
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLastName">Price</label>
-                                <input class="form-control" name="price" id="inputLastName" type="text" placeholder="Enter your last name" value="{{$product->price}}">
+                                <input class="form-control" name="price" id="inputLastName" type="text" placeholder="Enter" value="{{$product->price}}">
                             </div>
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputOrgName">Colour</label>
-                                <input class="form-control" name="colour" id="inputOrgName" type="text" placeholder="Enter your organization name" value="{{$product->colour}}">
+                                <input class="form-control" name="colour" id="inputOrgName" type="text" placeholder="Enter" value="{{$product->colour}}">
                             </div>
                             <!-- Form Group (location)-->
                         </div>
@@ -131,8 +131,8 @@
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (phone number)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">Type</label>
-                                <input class="form-control" name="type" id="inputPhone" type="tel" placeholder="Enter your phone number" value="{{$product->type_id}}">
+                                <label class="small mb-1" for="inputPhone">Category</label>
+                                <input class="form-control" name="type" id="inputPhone" type="tel" placeholder="Enter your phone number" value="">
                             </div>
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputEmailAddress">Origin</label>
@@ -142,8 +142,8 @@
                         <!-- Form Group (email address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputEmailAddress">Description</label>
-                            <input class="form-control" name="description" id="inputEmailAddress" type="textarea"
-                                    placeholder="Enter your description" value="">
+                            <input class="form-control" name="productdescription" id="inputEmailAddress" type="text"
+                                    placeholder="Enter your description" value="{{$product->productdescription}}">
                         </div>  
                         <!-- Save changes button-->
                         <button class="btn btn-secondary" type="reset">Reset</button>

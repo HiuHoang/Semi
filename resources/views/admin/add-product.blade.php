@@ -94,13 +94,10 @@
                 <div class="card mb-4 mb-xl-0">
                     <div class="card-header">Profile Picture</div>
                     <div class="card-body text-center">
-                        <!-- Profile picture image-->
-                        <img class="img-account-profile rounded-circle mb-2"
-                            src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                        <!-- Profile picture help block-->
                         <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                        <!-- Profile picture upload button-->
-                        <button class="btn btn-primary" type="button">Upload new image</button>
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            @csrf
+                        <input class="btn btn-primary" type="file" name='productimage'>            
                     </div>
                 </div>
             </div>
@@ -109,8 +106,6 @@
                 <div class="card mb-4">
                     <div class="card-header">Account Details</div>
                     <div class="card-body">
-                        <form method="POST">
-                            @csrf
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
                                 <!-- Form Group (first name)-->
@@ -119,10 +114,9 @@
                                     <input class="form-control" name="productname" id="inputFirstName" type="text"
                                         placeholder="Enter your first name" value="">
                                 </div>
-                                <!-- Form Group (last name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputLastName">Price</label>
-                                    <input class="form-control" name="price" id="inputLastName" type="password"
+                                    <input class="form-control" name="price" id="inputLastName" type="text"
                                         placeholder="Enter your last name" value="">
                                 </div>
                             </div>
@@ -135,14 +129,18 @@
                                         placeholder="Enter your organization name" value="">
                                 </div>
                                 <!-- Form Group (location)-->
-
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLastName">Size</label>
+                                    <input class="form-control" name="size" id="inputLastName" type="text"
+                                        placeholder="Enter your last name" value="">
+                                </div>
                             </div>
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
                                 <!-- Form Group (phone number)-->
                                 <div class="col-md-6">
-                                    <label class="small mb-1" for="inputPhone">Type</label>
-                                    <input class="form-control" name="type" id="inputPhone" type="tel"
+                                    <label class="small mb-1" for="inputPhone">Category</label>
+                                    <input class="form-control" name="" id="inputPhone" type="tel"
                                         placeholder="Enter your phone number" value="">
                                 </div>
                                 <div class="col-md-6">
@@ -154,7 +152,7 @@
                             <!-- Form Group (email address)-->
                             <div class="mb-3">
                                 <label class="small mb-1" for="inputEmailAddress">Description</label>
-                                <input class="form-control" name="description" id="inputEmailAddress" type="textarea"
+                                <input class="form-control" name="productdescription" id="inputEmailAddress" type="text"
                                     placeholder="Enter your description" value="">
                             </div>   
                             

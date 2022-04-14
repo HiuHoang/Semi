@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Male_Fashion">
+        <meta name="keywords" content="Male_Fashion, unica, creative, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Male-Fashion | Template</title>
+    
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    
+        <!-- Css Styles -->
+        <link rel="stylesheet" href="{{url('../public/home')}}/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="{{url('../public/home')}}/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="{{url('../public/home')}}/css/elegant-icons.css" type="text/css">
+        <link rel="stylesheet" href="{{url('../public/home')}}/css/magnific-popup.css" type="text/css">
+        <link rel="stylesheet" href="{{url('../public/home')}}/css/nice-select.css" type="text/css">
+        <link rel="stylesheet" href="{{url('../public/home')}}/css/owl.carousel.min.css" type="text/css">
+        <link rel="stylesheet" href="{{url('../public/home')}}/css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="{{url('../public/home')}}/css/style.css" type="text/css">
+    </head>
+<body>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -46,7 +71,7 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
+                                <a href="{{route('login')}}">Log in</a>
                                 <a href="#">FAQs</a>
                             </div>
                             <div class="header__top__hover">
@@ -72,19 +97,10 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
+                            <li><a href="{{route('shop')}}">Shop</a></li>
+                            <li><a href="{{route('blog')}}">Blog</a></li>
+                            <li><a href="{{route('contact')}}">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -92,7 +108,7 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="{{url('../public/home')}}/img/icon/search.png" alt=""></a>
                         <a href="#"><img src="{{url('../public/home')}}/img/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="{{url('../public/home')}}/img/icon/cart.png" alt=""> <span>0</span></a>
+                        <a href="{{route('cart')}}"><img src="{{url('../public/home')}}/img/icon/cart.png" alt=""> <span>0</span></a>
                         <div class="price">$0.00</div>
                     </div>
                 </div>

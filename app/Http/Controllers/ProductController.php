@@ -24,33 +24,55 @@ class ProductController extends Controller
         $data['product'] = Product::find($product_id);
         return view('admin.edit-product', $data);
     }
+    public function postEditProduct(Request $request, $product_id)
+    {
+        if ($request->hasFile('productimage')) {
+            $file = $request->file('productimage');
+            $path = public_path('/images/products');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move($path, $filename);
+        }
+        $product = Product::find($product_id);
+        $product->productname = $request->productname;
+        $product->productimage = $filename;
+        $product->price = $request->price;
+        $product->productdescription = $request->productdescription;
+        $product->colour = $request->colour;
+        $product->origin = $request->origin;
+        $product->save();
+        return redirect()->route('manageProduct');
+    }
     public function getInsertProduct()
     {
         return view('admin.add-product');
     }
-    public function postEditProduct(Request $request)
+    public function postInsertProduct(Request $request)
     {
         if ($request->isMethod('POST')) {
 
-            if ($request->hasFile('images')) {
-                $file = $request->file('images');
-                // $path = $request->file('images')->store('images/products');
-                $path = public_path('home/img');
-                $filepicture = time() . '_' . $file->getClientOriginalName();
-                $file->move($path, $filepicture);
+            if ($request->hasFile('productimage')) {
+                $file = $request->file('productimage');
+                $path = public_path('/images/products');
+                $filename = $file->getClientOriginalName();
+                $file->move($path, $filename);
             }
             $product = new Product;
-            // $product->productid = $request->productid;
             $product->productname = $request->productname;
-            $product->images = $filepicture;
+            $product->productimage = $filename;
             $product->price = $request->price;
-            $product->color = $request->color;
-            $product->images = $filepicture;
-            $product->description = $request->description;
+            $product->colour = $request->colour;
+            $product->productdescription = $request->productdescription;
             $product->origin = $request->origin;
-            $product->type_id = $request->type_id;
+            $product->size = $request->size;
+            // $product->category_id = $request->category_id;
             $product->save();
-            return redirect()->route('product')->with('success', 'Product has been added');
+            return redirect()->route('manageProduct')->with('success', 'Product has been added');
         }
+    }
+    public function gethome()
+    {
+        $product = DB::table('products')->get();
+        //dd($product);
+        return view('user.home', ['product' => $product]);
     }
 }

@@ -74,3 +74,18 @@
     </div>
 </div>
 <!-- Search End -->
+
+    <!-- Js Plugins -->
+    <script src="{{url('../public/home')}}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{url('../public/home')}}/js/bootstrap.min.js"></script>
+    <script src="{{url('../public/home')}}/js/jquery.nice-select.min.js"></script>
+    <script src="{{url('../public/home')}}/js/jquery.nicescroll.min.js"></script>
+    <script src="{{url('../public/home')}}/js/jquery.magnific-popup.min.js"></script>
+    <script src="{{url('../public/home')}}/js/jquery.countdown.min.js"></script>
+    <script src="{{url('../public/home')}}/js/jquery.slicknav.js"></script>
+    <script src="{{url('../public/home')}}/js/mixitup.min.js"></script>
+    <script src="{{url('../public/home')}}/js/owl.carousel.min.js"></script>
+    <script src="{{url('../public/home')}}/js/main.js"></script>
+</body>
+
+</html>

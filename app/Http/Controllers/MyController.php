@@ -20,7 +20,7 @@ class MyController extends Controller
         $arr = ['username' => $request->username, 'password' => $request->password];
         return redirect()->route('dashboard');
     }
-    public function getlogout(Request $request)
+    public function getlogout()
     {
         Auth::logout();
         return redirect()->intended('user/login');
@@ -34,7 +34,7 @@ class MyController extends Controller
         $user = new User;
         $user->username = $request->username;
         $user->email = $request->email;
-        $user->role = $request->role;
+        $user->fullname = $request->fullname;
         $user->password = Hash::make($request->password);
         $user->save();
         return redirect()->route('manage');
@@ -57,14 +57,48 @@ class MyController extends Controller
     public function getEditUser($user_id)
     {
         $data['user'] = User::find($user_id);
+        // $user = DB::table('users')
+        //     ->join('roles', 'users.role_id', '=', 'roles.role_id')
+        //     ->select('*')
+        //     ->where('user_id', '= ', $user_id)
+        //     ->get();
         return view('admin.edit', $data);
     }
     public function postEditUser(Request $request, $user_id)
     {
+        if ($request->hasFile('userimage')) {
+            $file = $request->file('userimage');
+            $path = public_path('/images/users');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move($path, $filename);
+        }
+        $user = new User;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->userimage = $filename;
+        $user->fullname = $request->fullname;
+        $user->rolename = $request->rolename;
+        $user->save();
+        return redirect()->route('manage');
+    }
+    public function getUser($user_id)
+    {
+        $data['user'] = User::find($user_id);
+        return view('user.edit', $data);
+    }
+    public function postUser(Request $request, $user_id)
+    {
+        if ($request->hasFile('userimage')) {
+            $file = $request->file('userimage');
+            $path = public_path('/images/users');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move($path, $filename);
+        }
         $user = User::find($user_id);
         $user->username = $request->username;
         $user->email = $request->email;
-        $user->role = $request->role;
+        $user->fullname = $request->fullname;
+        $user->userimage = $filename;
         $user->save();
         return redirect()->route('manage');
     }

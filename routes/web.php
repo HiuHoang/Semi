@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('user.home');
-});
+// Route::get('/', function () {
+//     return view('user.home');
+// });
 Route::group(['prefix' => 'user'], function () {
     Route::post('/logout', [MyController::class, 'getlogout'])->name('logout');
     Route::get('/login', [MyController::class, 'getLogin'])->name('login');
@@ -37,5 +39,18 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('editProduct/{id}', [ProductController::class, 'getEditProduct'])->name('editProduct');
     Route::post('editProduct/{id}', [ProductController::class, 'postEditProduct'])->name('posteditProduct');
     Route::get('/newproduct', [ProductController::class, 'getInsertProduct'])->name('insert');
-    Route::post('/addProduct', [ProductController::class, 'postProduct'])->name('');
+    Route::post('/newproduct', [ProductController::class, 'postInsertProduct']);
+});
+Route::group(['prefix' => 'cart'], function () {
+    Route::get('/cart', [HomeController::class, 'getcart'])->name('cart');
+    Route::get('/add/{id}', [MyController::class, 'getAddCart'])->name('addCart');
+    Route::get('/delete/{id}', [MyController::class, 'getDeleteCart'])->name('deleteCart');
+    Route::get('/update/{id}', [MyController::class, 'getUpdateCart'])->name('updateCart');
+});
+Route::group(['prefix' => 'home'], function () {
+    Route::get('/home', [HomeController::class, 'gethome'])->name('home');
+    Route::get('/shop', [HomeController::class, 'getshop'])->name('shop');
+    Route::get('/shopdetail/{id}', [HomeController::class, 'getshopdetail'])->name('shopdetail');
+    Route::get('/blog', [HomeController::class, 'getblog'])->name('blog');
+    Route::get('/contact', [HomeController::class, 'getcontact'])->name('contact');
 });

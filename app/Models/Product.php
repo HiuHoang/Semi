@@ -15,7 +15,7 @@ class Product extends Model
         'productimage',
         'price',
         'colour',
-        'material',
+        'productdescription',
         'origin',
         'type_id'
     ];

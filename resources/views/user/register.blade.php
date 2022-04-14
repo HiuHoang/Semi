@@ -63,15 +63,6 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-
-                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="text" name="role" placeholder="Confirm Password">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-check" aria-hidden="true"></i>
-						</span>
-					</div>
-					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit">
 							Sign Up
