@@ -23,7 +23,7 @@
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6">
                 <div class="footer__widget">
-                    <h6>Shopping</h6>
+                    <h6>Shoppping</h6>
                     <ul>
                         <li><a href="#">Contact Us</a></li>
                         <li><a href="#">Payment Methods</a></li>
@@ -73,6 +73,7 @@
         </form>
     </div>
 </div>
+<h1>hi</h1>
 <!-- Search End -->
 
     <!-- Js Plugins -->
