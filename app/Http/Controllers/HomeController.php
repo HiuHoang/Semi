@@ -36,28 +36,35 @@ class HomeController extends Controller
     }
     public function getcart()
     {
-        //$product = Product::all();
+        $product = Product::all();
         return view('user.shopping-cart');
     }
     public function gettocart(Request $request)
     {
         $data = new Cart;
-        $data->username = Auth()->user()->username;
-        $data->product = $request->productid;
-        $data->quantity = $value ?? '1';
-        $data->size = $request->size;
+        $data->user_id = Auth()->user()->user_id;
+        $data->product_id = $request->product_id;
         $data->save();
-        $alertadd = 'Add to cart successfully!';
-        return back()->with('alertadd', $alertadd);
+        return redirect()->back();
     }
     public function getAllCart()
     {
         $cart = DB::table('cart')
-            ->join('products', 'cart.product', '=', 'product.productid')
-            ->join('users', 'cart.username', '=', 'users.username')
-            ->select('cart.*', 'product.*', 'size.size', 'users.username')
-            ->where('cart.username', Auth()->user()->username)
+            ->join('products', 'cart.product_id', '=', 'products.product_id')
+            ->join('users', 'cart.user_id', '=', 'users.user_id')
+            ->select('cart.*', 'products.productname', 'products.productimage', 'products.price')
+            ->where('users.user_id', '=', Auth()->user()->user_id)
             ->get();
-        // return view('cart', ['cart' => $cart, 'total' => $total]);
+        // $total = 0;
+        // foreach ($cart as $key => $value) {
+        //     $total += ($value->price * $value->quantity);
+        // }
+        return view('user.shopping-cart', compact('cart'));
+    }
+    public function DeleteCart($cart_id)
+    {
+        $data = Cart::find($cart_id);
+        $data->delete();
+        return back();
     }
 }

@@ -32,10 +32,15 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
-            <div class="offcanvas__links">
-                <a href='{{route('login')}}'>Log in</a>
-                <a href="">FAQs</a>
-            </div>
+            @if(Auth::check())
+                {{Auth::user()->username}}
+                <a href="">Logout</a> 
+            @else
+                <div class="offcanvas__links">
+                    <a href='{{route('login')}}'>Log in</a>
+                    <a href="">FAQs</a>
+                </div>
+            @endif
             <div class="offcanvas__top__hover">
                 <span>Usd <i class="arrow_carrot-down"></i></span>
                 <ul>
@@ -71,17 +76,29 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="{{route('login')}}">Log in</a>
-                                <a href="#">FAQs</a>
+                                @if(Auth::check())
+                                <a href="{{route('manage')}}">{{Auth::user()->username}}</a>
+                                <a href="{{route('logout')}}">Logout</a> 
+                            @else
+                                <div class="offcanvas__links">
+                                    <a href='{{route('login')}}'>Log in</a>
+                                    <a href="">FAQs</a>
+                                </div>
+                            @endif
                             </div>
-                            <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
+                            {{-- <div class="header__top__hover">
+                                <span>                                
+                                    @if(Auth::check())
+                                    <a href="">{{Auth::user()->username}}</a> <i class="arrow_carrot-down"></i>
+                                </span>
                                 <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
+                                    <li><a href="{{route('logout')}}">Profile</a></li>
+                                    <li><a href="{{route('logout')}}">Logout</a></li>
                                 </ul>
-                            </div>
+                                @else
+                                <a href='{{route('login')}}'>Log in</a>
+                                @endif
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -108,7 +125,7 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="{{url('../public/home')}}/img/icon/search.png" alt=""></a>
                         <a href="#"><img src="{{url('../public/home')}}/img/icon/heart.png" alt=""></a>
-                        <a href="{{route('cart')}}"><img src="{{url('../public/home')}}/img/icon/cart.png" alt=""> <span>0</span></a>
+                        <a href="{{route('mycart')}}"><img src="{{url('../public/home')}}/img/icon/cart.png" alt=""> <span>0</span></a>
                         <div class="price">$0.00</div>
                     </div>
                 </div>

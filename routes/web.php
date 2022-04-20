@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('user.home');
 // });
 Route::group(['prefix' => 'user'], function () {
-    Route::post('/logout', [MyController::class, 'getlogout'])->name('logout');
+    Route::get('/logout', [MyController::class, 'postLogout'])->name('logout');
     Route::get('/login', [MyController::class, 'getLogin'])->name('login');
     Route::post('/login', [MyController::class, 'postLogin']);
     Route::get('/register', [MyController::class, 'getRegister'])->name('register');
@@ -42,8 +42,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/newproduct', [ProductController::class, 'postInsertProduct']);
 });
 Route::group(['prefix' => 'cart'], function () {
-    Route::get('/cart', [HomeController::class, 'getcart'])->name('cart');
-    Route::get('/add/{id}', [MyController::class, 'getAddCart'])->name('addCart');
+    // Route::get('/cart/{id}', [MyController::class, 'getAddCart'])->name('addCart');
     Route::get('/delete/{id}', [MyController::class, 'getDeleteCart'])->name('deleteCart');
     Route::get('/update/{id}', [MyController::class, 'getUpdateCart'])->name('updateCart');
 });
@@ -51,6 +50,9 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/home', [HomeController::class, 'gethome'])->name('home');
     Route::get('/shop', [HomeController::class, 'getshop'])->name('shop');
     Route::get('/shopdetail/{id}', [HomeController::class, 'getshopdetail'])->name('shopdetail');
+    Route::get('/shopdetail', [HomeController::class, 'gettocart'])->name('cart');
+    Route::post('/shopdetail/{id}', [HomeController::class, 'gettocart']);
     Route::get('/blog', [HomeController::class, 'getblog'])->name('blog');
     Route::get('/contact', [HomeController::class, 'getcontact'])->name('contact');
+    Route::get('/mycart', [HomeController::class, 'getAllCart'])->name('mycart');
 });

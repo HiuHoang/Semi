@@ -18,12 +18,20 @@ class MyController extends Controller
     public function postLogin(Request $request)
     {
         $arr = ['username' => $request->username, 'password' => $request->password];
+        if (Auth::attempt($arr)) {
+            if (Auth::user()->role_id == 1) {
+                return redirect()->route('home');
+            }
+            return redirect()->route('home');
+        } else {
+            return redirect()->back();
+        }
         return redirect()->route('dashboard');
     }
-    public function getlogout()
+    public function postLogout()
     {
         Auth::logout();
-        return redirect()->intended('user/login');
+        return redirect()->route('home');
     }
     public function getRegister()
     {

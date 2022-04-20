@@ -76,6 +76,9 @@
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
+                    <form method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{$product->product_id}}">
                         <div class="product__details__text">
                             <h4>{{ $product->productname }}</h4>
                             <div class="rating">
@@ -131,7 +134,16 @@
                                         <input type="text" value="1">
                                     </div>
                                 </div>
-                                <a href="#" class="primary-btn">add to cart</a>
+                                @if(@session('success'))
+                                    <div class="alert alert-success">
+                                        {{session('success')}}
+                                    </div>
+                                @endif
+                                @if(Auth::check())
+                                    <button class="primary-btn" type="submit">add to cart</button>
+                                @else
+                                    <a href="{{route('login')}}" class="primary-btn">Buy now</a>
+                                @endif
                             </div>
                             <div class="product__details__btns__option">
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
@@ -147,6 +159,7 @@
                                 </ul>
                             </div>
                         </div>
+                    </form>
                     </div>
                 </div>
                 <div class="row">
