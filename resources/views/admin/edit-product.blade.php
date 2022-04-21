@@ -150,6 +150,7 @@
                         <button class="btn btn-success" type="submit">Save changes</button>
                     </form>
                 </div>
+                <h1>product</h1>
             </div>
         </div>
     </div>
