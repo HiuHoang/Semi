@@ -128,6 +128,7 @@
                                 <a href="#">Terms &amp; Conditions</a>
                             </div>
                         </div>
+                        <h1>index</h1>
                     </div>
                 </footer>
             </div>
