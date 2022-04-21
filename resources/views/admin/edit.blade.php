@@ -122,7 +122,7 @@
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLocation">Role</label>
-                                <input class="form-control" name="rolename" id="inputLocation" type="text" placeholder="Enter your location" value="{{$user->rolename}}">
+                                <input class="form-control" name="role_id" id="inputLocation" type="text" placeholder="Enter your location" value="{{$user->role_id}}">
                             </div>
                         </div>
                         <!-- Form Group (email address)-->

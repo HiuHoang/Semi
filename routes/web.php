@@ -55,4 +55,5 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/blog', [HomeController::class, 'getblog'])->name('blog');
     Route::get('/contact', [HomeController::class, 'getcontact'])->name('contact');
     Route::get('/mycart', [HomeController::class, 'getAllCart'])->name('mycart');
+    Route::get('/delete/{id}', [HomeController::class, 'deleteCart'])->name('deleteCart');
 });

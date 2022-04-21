@@ -20,7 +20,7 @@ class MyController extends Controller
         $arr = ['username' => $request->username, 'password' => $request->password];
         if (Auth::attempt($arr)) {
             if (Auth::user()->role_id == 1) {
-                return redirect()->route('home');
+                return redirect()->route('dashboard');
             }
             return redirect()->route('home');
         } else {
@@ -45,7 +45,7 @@ class MyController extends Controller
         $user->fullname = $request->fullname;
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect()->route('manage');
+        return redirect()->route('login');
     }
     public function getadminpage()
     {
@@ -65,7 +65,7 @@ class MyController extends Controller
     public function getEditUser($user_id)
     {
         $data['user'] = User::find($user_id);
-        // $user = DB::table('users')
+        // $data['user'] = DB::table('users')
         //     ->join('roles', 'users.role_id', '=', 'roles.role_id')
         //     ->select('*')
         //     ->where('user_id', '= ', $user_id)
@@ -83,9 +83,10 @@ class MyController extends Controller
         $user = new User;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->password = Hash::make($request->password);
         $user->userimage = $filename;
         $user->fullname = $request->fullname;
-        $user->rolename = $request->rolename;
+        $user->role_id = $request->role_id;
         $user->save();
         return redirect()->route('manage');
     }

@@ -61,9 +61,9 @@ class HomeController extends Controller
         // }
         return view('user.shopping-cart', compact('cart'));
     }
-    public function DeleteCart($cart_id)
+    public function deleteCart($product_id)
     {
-        $data = Cart::find($cart_id);
+        $data = Cart::find($product_id);
         $data->delete();
         return back();
     }

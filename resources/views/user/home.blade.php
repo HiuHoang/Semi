@@ -103,7 +103,6 @@
             </div>
             <div class="row product__filter">
                 @foreach ($product as $key=> $value)
-                {{-- <a href="{{route('shopdetail', $value->product_id)}}"> --}}
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="{{ asset('images/products/' .$value->productimage) }}">

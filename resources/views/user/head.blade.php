@@ -33,12 +33,12 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             @if(Auth::check())
+                {{Auth::user()->userimage}}
                 {{Auth::user()->username}}
                 <a href="">Logout</a> 
             @else
                 <div class="offcanvas__links">
                     <a href='{{route('login')}}'>Log in</a>
-                    <a href="">FAQs</a>
                 </div>
             @endif
             <div class="offcanvas__top__hover">
@@ -86,19 +86,6 @@
                                 </div>
                             @endif
                             </div>
-                            {{-- <div class="header__top__hover">
-                                <span>                                
-                                    @if(Auth::check())
-                                    <a href="">{{Auth::user()->username}}</a> <i class="arrow_carrot-down"></i>
-                                </span>
-                                <ul>
-                                    <li><a href="{{route('logout')}}">Profile</a></li>
-                                    <li><a href="{{route('logout')}}">Logout</a></li>
-                                </ul>
-                                @else
-                                <a href='{{route('login')}}'>Log in</a>
-                                @endif
-                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -108,7 +95,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{url('../public/home')}}/img/logo.png" alt=""></a>
+                        <a href="{{route('home')}}"><img src="{{url('../public/home')}}/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
