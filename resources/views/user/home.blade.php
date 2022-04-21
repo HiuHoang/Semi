@@ -265,6 +265,7 @@
                 </div>
             </div>
         </div>
+        <h1>Contact</h1>
     </section>
     <!-- Latest Blog Section End -->
 
