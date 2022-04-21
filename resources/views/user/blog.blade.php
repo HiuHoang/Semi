@@ -24,6 +24,7 @@
                             <span><img src="img/icon/calendar.png" alt=""> 16 February 2020</span>
                             <h5>What Curling Irons Are The Best Ones</h5>
                             <a href="#">Read More</a>
+                            <h1>Hello Minh Tam is here</h1>
                         </div>
                     </div>
                 </div>
